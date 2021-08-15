@@ -2,8 +2,9 @@ package ratelimiter_example
 
 import (
 	"fmt"
-	"github.com/Mycunycu/ratelimiter"
 	"time"
+	
+	"github.com/Mycunycu/ratelimiter"
 )
 
 func main() {

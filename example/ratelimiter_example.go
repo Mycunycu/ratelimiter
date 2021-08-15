@@ -1,13 +1,13 @@
-package ratelimiter_example
+package example
 
 import (
 	"fmt"
 	"time"
-	
+
 	"github.com/Mycunycu/ratelimiter"
 )
 
-func main() {
+func Example() {
 	taskChan := make(chan func())
 
 	limiter := ratelimiter.New(taskChan, 2, 10, time.Minute)

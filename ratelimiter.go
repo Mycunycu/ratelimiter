@@ -65,7 +65,6 @@ func (rl *RateLimiter) taskWorker() {
 		select {
 		case task, ok := <-rl.chanIn:
 			if !ok {
-				fmt.Println("ChanIn closed")
 				rl.wg.Done()
 				return
 			}

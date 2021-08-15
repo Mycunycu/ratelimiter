@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Mycunycu/ratelimiter/ratelimiter"
+	"github.com/Mycunycu/ratelimiter"
 )
 
 func Example() {

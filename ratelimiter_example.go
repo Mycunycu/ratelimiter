@@ -2,7 +2,7 @@ package ratelimiter_example
 
 import (
 	"fmt"
-	"ratelimiter/ratelimiter"
+	"github.com/Mycunycu/ratelimiter"
 	"time"
 )
 

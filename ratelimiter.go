@@ -99,5 +99,5 @@ func (rl *RateLimiter) renewLimit() {
 // IMPORTANT - close the channel with caution to avoid panic, don't write into the closed channel.
 func (rl *RateLimiter) Wait() {
 	rl.wg.Wait()
-	fmt.Println("Task chan closed")
+	fmt.Println("Task chan is closed")
 }

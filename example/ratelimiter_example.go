@@ -2,6 +2,7 @@ package example
 
 import (
 	"fmt"
+	"sync/atomic"
 	"time"
 
 	"github.com/Mycunycu/ratelimiter"
@@ -16,19 +17,19 @@ func Example() {
 	// Task provider simulating
 	go func() {
 		ticker := time.NewTicker(time.Millisecond * 500)
-		counter := 0
+		var counter int32
 
 		for range ticker.C {
 			// as example closing the task channel
-			if counter == 13 {
+			if atomic.LoadInt32(&counter) == 13 {
 				ticker.Stop()
 				close(taskChan)
 				return
 			}
 
+			atomic.AddInt32(&counter, 1)
 			task := func() {
-				counter++
-				count := counter
+				count := atomic.LoadInt32(&counter)
 
 				time.Sleep(time.Second)
 				fmt.Println("Task result", count)
